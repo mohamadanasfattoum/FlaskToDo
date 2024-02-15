@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 
 app = Flask(__name__)
 
@@ -13,7 +13,7 @@ def welcome():
 
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # to run server
     # with app.app_context():
     #     db.create_all()
 
