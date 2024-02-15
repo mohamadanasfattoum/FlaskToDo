@@ -5,7 +5,10 @@ app = Flask(__name__)
 
 
 
-
+# views
+@app.route('/') # url
+def welcome():
+    return jsonify({'Message':'Welcome'})
 
 
 
