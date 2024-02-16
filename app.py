@@ -11,8 +11,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 db.init_app(app)
 
 # create tables when start as migrate
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 # views
 @app.route('/') # url
@@ -23,7 +23,7 @@ def welcome():
 
 
 if __name__ == "__main__": # to run server
-    # with app.app_context():
-    #     db.create_all()
+    with app.app_context():
+        db.create_all()
 
     app.run(debug=True)

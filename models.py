@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 # define model
 
-class Todo(db.model):
+class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100) , nullable=False) 
     notes = db.Column(db.String(500)) 
