@@ -8,11 +8,13 @@ app = Flask(__name__)
 
 # flask config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
+
 # create tables when start as migrate
-# with app.app_context():
-#     db.create_all()
+with app.app_context():
+    db.create_all()
 
 # views
 @app.route('/') # url
@@ -23,7 +25,4 @@ def todo_list():
 
 
 if __name__ == "__main__": # to run server
-    with app.app_context():
-        db.create_all()
-
     app.run(debug=True)

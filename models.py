@@ -13,6 +13,5 @@ class Todo(db.Model):
         self.name=name
         self.notes=notes
     
-
     def get_all():  # to return all todos
         return Todo.query.all()
