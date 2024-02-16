@@ -15,3 +15,6 @@ class Todo(db.Model):
     
     def get_all():  # to return all todos
         return Todo.query.all()
+
+    def get_todo(todo_id):
+        return Todo.query.get(todo_id)
