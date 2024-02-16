@@ -16,9 +16,9 @@ db.init_app(app)
 
 # views
 @app.route('/') # url
-def welcome():
-    return jsonify({'Message':'Welcome'})
-
+def todo_list():
+    data = Todo.get_all()
+    return render_template('list.html', todos=data)
 
 
 
