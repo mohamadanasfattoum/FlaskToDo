@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, url_for
 from flask_sqlalchemy import SQLAlchemy
 from models import db, Todo
 import os
@@ -26,6 +26,16 @@ with app.app_context():
 def todo_list():
     data = Todo.get_all()
     return render_template('list.html', todos=data)
+
+@app.route('/add', methods=['POST'])
+def add_todo():
+    name = request.form['task']
+    notes = request.form['note']
+    todo = Todo(name,notes)
+    todo.save()
+    return redirect(url_for('todo_list'))
+
+
 
 
 

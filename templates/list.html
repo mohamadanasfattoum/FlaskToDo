@@ -12,10 +12,10 @@
          <h2 class="mt-4">ToDo List</h2>
          <form action="/add" method="post" class="row mt-4">
             <div class="col-lg-5">
-              <input type="text" class="form-control" placeholder="Enter task names">
+              <input type="text" class="form-control" name="task" placeholder="Enter task names">
             </div>
             <div class="col-lg-5">
-              <input type="text" class="form-control" placeholder="Enter task notes">
+              <input type="text" class="form-control" name="note" placeholder="Enter task notes">
 
             </div>
             <div class="col-lg-2">
@@ -24,11 +24,11 @@
 
          </form>
 
-         <ul class="list-group">
+         <ul class="list-group mt-4">
             
             {% for todo in todos %}
                 <li class="list-group-item">
-                    <h4> {{todo.name}} - {{todo.notes}} </h4>
+                    <p> {{todo.name}} - {{todo.notes}} </p>
                 </li>
             {% endfor %}
                 

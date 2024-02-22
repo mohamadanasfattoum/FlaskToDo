@@ -13,8 +13,23 @@ class Todo(db.Model):
         self.name=name
         self.notes=notes
     
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+
     def get_all():  # to return all todos
         return Todo.query.all()
 
     def get_todo(todo_id):
         return Todo.query.get(todo_id)
+
+    def todo_update(todo_id,name,notes):
+        todo = Todo.query.get(todo_id)
+        todo.name = name
+        todo.notes= notes
+        db.session.commit()
+
+    def todo_delete(todo_id):
+        todo = Todo.query.get(todo_id)
+        db.session.delete(todo)
+        db.session.commit()
