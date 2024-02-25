@@ -36,6 +36,13 @@ def add_todo():
     return redirect(url_for('todo_list'))
 
 
+@app.route('/delete/<int:todo_id>', methods=['POST'])
+def delete_todo(todo_id):
+    Todo.todo_delete(todo_id)
+    return redirect(url_for('todo_list'))
+
+
+
 
 
 

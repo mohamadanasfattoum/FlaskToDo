@@ -28,7 +28,18 @@
             
             {% for todo in todos %}
                 <li class="list-group-item  my-2">
-                    <p> {{todo.name}} - {{todo.notes}} </p>
+                  <form action="" method="post" class="row">
+                    <div class="col-lg-5">
+                      <input type="text" value="{{todo.name}}">
+                    </div>
+                    <div class="col-lg-5">
+                      <input type="text" value="{{todo.notes}}">
+                    </div>
+                    <div class="col-lg-2">
+                      <button class="btn btn-success" type="submit">Update</button>
+                      <button class="btn btn-danger" type="submit">Delete</button>
+                    </div>
+                  </form>                
                 </li>
             {% endfor %}
                 
