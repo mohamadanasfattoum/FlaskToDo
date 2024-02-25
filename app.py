@@ -35,6 +35,13 @@ def add_todo():
     todo.save()
     return redirect(url_for('todo_list'))
 
+@app.route('/update/<int:todo_id>', methods=['POST'])
+def update_todo(todo_id):
+    name = request.form['task']
+    notes = request.form['note']
+    Todo.todo_update(todo_id,name,notes)
+    return redirect(url_for('todo_list'))
+
 
 @app.route('/delete/<int:todo_id>', methods=['POST'])
 def delete_todo(todo_id):

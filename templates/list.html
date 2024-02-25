@@ -28,16 +28,16 @@
             
             {% for todo in todos %}
                 <li class="list-group-item  my-2">
-                  <form action="" method="post" class="row">
+                  <form action="/update/{{todo.id}}" method="post" class="row">
                     <div class="col-lg-5">
-                      <input type="text" value="{{todo.name}}">
+                      <input type="text" value="{{todo.name}}" name="task">
                     </div>
                     <div class="col-lg-5">
-                      <input type="text" value="{{todo.notes}}">
+                      <input type="text" value="{{todo.notes}}" name="note">
                     </div>
                     <div class="col-lg-2">
                       <button class="btn btn-success" type="submit">Update</button>
-                      <button class="btn btn-danger" type="submit">Delete</button>
+                      <button class="btn btn-danger" type="submit" formaction="/delete/{{todo.id}}">Delete</button>
                     </div>
                   </form>                
                 </li>
